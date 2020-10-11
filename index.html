@@ -1,8 +1,12 @@
+ï»¿<!DOCTYPE html>
 <html>
-
-<head>
-<title>Ñ§Êõ¼Ò×åÊ÷</title>
+<head> 
+<meta charset="utf-8"> 
+<title>å­¦æœ¯å®¶æ—æ ‘</title>
 <script src="./src/jquery.js"></script>
+//<script src="./src/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 
 <style>
@@ -15,25 +19,149 @@ background-position: 100% 100%;
 } 
 </style>
 
-<body>
-<form>
-<textarea id="txt" placeholder=
-  "ÇëÊäÈë¼Ò×åÊ÷ĞÅÏ¢£º
-  ÀıÈç£º
-  µ¼Ê¦£ºÕÅÈı
-  2016¼¶²©Ê¿Éú£ºÌìÒ»¡¢Íõ¶ş¡¢ÎâÎå
-  2015¼¶Ë¶Ê¿Éú£ºÀîËÄ¡¢ÍõÎå¡¢ĞíÁù
-  2016¼¶Ë¶Ê¿Éú£ºÁõÒ»¡¢Àî¶ş¡¢ÀîÈı
-  2017¼¶±¾¿ÆÉú£ºÁõÁù¡¢ç÷Æß¡¢Ë¾ËÄ
+<body >
+<textarea id="data1" type="text" placeholder=
+  "è¯·è¾“å…¥å®¶æ—æ ‘ä¿¡æ¯ï¼š
+  ä¾‹å¦‚ï¼š
+  å¯¼å¸ˆï¼šå¼ ä¸‰
+  2016çº§åšå£«ç”Ÿï¼šå¤©ä¸€ã€ç‹äºŒã€å´äº”
+  2015çº§ç¡•å£«ç”Ÿï¼šæå››ã€ç‹äº”ã€è®¸å…­
+  2016çº§ç¡•å£«ç”Ÿï¼šåˆ˜ä¸€ã€æäºŒã€æä¸‰
+  2017çº§æœ¬ç§‘ç”Ÿï¼šåˆ˜å…­ã€çªä¸ƒã€å¸å››
 
-  ÁõÁù£ºJAVA¡¢ÊıÑ§½¨Ä£
+  åˆ˜å…­ï¼šJAVAã€æ•°å­¦å»ºæ¨¡
 
-  Àî¶ş£º×Ö½ÚÌø¶¯¡¢¾©¶«ÔÆ"
+  æäºŒï¼šå­—èŠ‚è·³åŠ¨ã€äº¬ä¸œäº‘"
 rows="15" cols="50" style="resize: none;margin-left: 50px;margin-top: 25px">
 </textarea>
-<br>
-<input type="submit" value="Ìá½»" style="margin-left: 380px;margin-top: 10px">
-</form>
+<button id='creat'>æäº¤</button>
+
+<script>
+$("#creat").click(function(){	
+   		var s =document.getElementById("data1").value;
+		var reg = new RegExp("å¯¼å¸ˆï¼š","g");
+		s.replace(reg,"å¯¼å¸ˆï¼š/");
+		var reg = new RegExp("çº§åšå£«ç”Ÿï¼š","g");
+		s.replace(reg,"çº§åšå£«ç”Ÿï¼š/");
+		var reg = new RegExp("çº§ç¡•å£«ç”Ÿï¼š","g");
+		s.replace(reg,"çº§ç¡•å£«ç”Ÿï¼š/");
+		var reg = new RegExp("çº§æœ¬ç§‘ç”Ÿï¼š","g");
+		s.replace(reg,"çº§æœ¬ç§‘ç”Ÿï¼š/");
+		var reg = new RegExp(" ","g");
+		s.replace(reg,"");
+		var length=s.length;
+		if (s[length-1].match(/\n|\r/g))
+		alert("æ–‡æœ¬æœ«ä¸èƒ½æœ‰ç©ºè¡Œï¼");
+		var reg = /\n(\n)*( )*(\n)*\n/g;
+		s = s.replace(reg,"\n");
+   		var ss = s.split(/ã€|\n|\r|ï¼š|\t|\ +/g); 
+		console.log(ss);
+		var num1=0;
+		var num2=0;
+		var num3=0;
+		var num4=0;
+		var num5=0;
+		var tc=0;
+		var i=0;
+		if(ss[0]!="å¯¼å¸ˆ"){
+			alert("è¯·è¾“å…¥ä»¥å¯¼å¸ˆå¼€å¤´çš„æ ¼å¼ï¼");
+		}
+		else{
+			//å¤„ç†å¯¼å¸ˆèŠ‚ç‚¹
+		while(i<ss.length){
+
+				for(;i<ss.length;i++){
+					console.log(ss[i]);
+					if(i==0){
+						if(ss[i]=="å¯¼å¸ˆ"){
+							$("#Tree").html('<li id="id4'+num4+'"><span  id="id5'+num5+'"> å¯¼å¸ˆ</span></li>');
+							num4++;
+							i++;
+							$('#id5'+num5).after('<ul><li id="tc'+tc+'"><span id="teacher"> '+ss[i]+'</span></li></u1>');
+							num5++;
+						}
+						else{
+							break;
+						} 
+						console.log(ss[i]);
+					}
+					else{
+						if(ss[i]=="å¯¼å¸ˆ"){
+						$('#id4'+(num4-1)).after('<li id="id4'+num4+'"><span  id="id5'+num5+'"> å¯¼å¸ˆ</span></li>');
+						num4++;
+						i++;
+						$('#id5'+num5).after('<ul><li id="tc'+tc+'"><span id="teacher"> '+ss[i]+'</span></li></u1>');
+						num5++;
+					}
+					else{
+						break;
+					} 
+					console.log(ss[i]);
+					}
+						
+				}
+		//å¤„ç†å…¶ä»–èŠ‚ç‚¹
+				while(i<ss.length){
+					if(ss[i].match(/(([0-9]+)çº§åšå£«ç”Ÿ)|(([0-9]+)çº§ç¡•å£«ç”Ÿ)|(([0-9]+)çº§æœ¬ç§‘ç”Ÿ)/)){
+						$('#tc'+tc).after('<li><span id="id'+num1+'"> </span></li>');
+
+						$('#id'+num1).html(ss[i]);
+						console.log(ss[i]);
+						i++;
+						var j=1;
+							for(;i<ss.length;i++){
+								console.log(ss[i]);
+								if(ss[i].match(/(([0-9]+)çº§åšå£«ç”Ÿ)|(([0-9]+)çº§ç¡•å£«ç”Ÿ)|(([0-9]+)çº§æœ¬ç§‘ç”Ÿ)|å¯¼å¸ˆ/)){
+									i--;
+									break;
+								}
+								if(j==1){
+									$('#id'+num1).after('<ul><li id="id3'+num3+'"><span id="id2'+num2+'"> </span></li></u1>');
+									j++;
+								}
+								else{
+									$('#id3'+(num3-1)).after('<li id="id3'+num3+'"><span id="id2'+num2+'"> </span></li>');
+								}
+								$('#id2'+num2).html(ss[i]);
+								num2=num2+1;
+								num3=num3+1;
+								console.log(ss[i]);
+							}  
+						num1=num1+1;
+					}
+					else{
+						break;
+					}
+					
+					i++;
+					if(ss[i]=="å¯¼å¸ˆ"){
+						break;
+					}
+					console.log(ss[i]);
+				}
+				tc++;
+		}
+		}
+            $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'å…³é—­');
+            $('.tree li.parent_li > span').on('click', function (e) {
+                var children = $(this).parent('li.parent_li').find(' > ul > li');
+                if (children.is(":visible")) {
+                    children.hide('fast');
+                    $(this).attr('title', 'å±•å¼€').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+                } else {
+                    children.show('fast');
+                    $(this).attr('title', 'å…³é—­').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+                }
+                e.stopPropagation();
+            });
+});
+</script>
+
+<div class="tree">
+<ul id="Tree">
+</ul>
+</div>
+
 </body>
 
 </html>
