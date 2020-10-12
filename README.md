@@ -1,6 +1,6 @@
 # 2020 软件工程第二次结对作业
  - 目录说明
-    - index.html
+    - iiindex.html
     - image 文件夹
        - background.jpg     (背景图片)
     - css 文件夹
